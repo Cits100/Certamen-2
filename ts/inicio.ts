@@ -1,6 +1,36 @@
 import jquery=require('jquery');
 
 const $:JQueryStatic=jquery;
+interface Datos{
+  id:number;
+  contenido:any;
+}
+let NuevaData=Array<Datos>();
+function obtenerdata(){
+  let i:number;
+  let j:string;
+  for(i=0;i<6;i++){
+    j=i.toString();
+    let obtenerdato:any = document.getElementById(j);
+    return obtenerdato;
+  }
+}
+function crearDatos(){
+    
+    let data:Datos= new (NuevaData.length +1, obtenerdata());
+    NuevaData.push(data);
+    mostrarDatos();
+}
+function mostrarDatos(){
+  let i:number;
+  let LData:any=document.getElementById("fotos");
+  let li:any=document.createElement("li");
+  for(i=0;i<NuevaData.length;i++){
+    let li:any=document.createElement("li");
+      //LFoto.appendChild(li).innerHTML="<img src='imgs/"+Galeria[i].imagen+"'>";
+      LData.appendChild(li).innerHTML=`"RUT: ${NuevaData[i].contenido}"`;
+  }
+}
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
@@ -21,15 +51,4 @@ const $:JQueryStatic=jquery;
     })
 })()
 
-function ValidarRut(valor:any){
-  var tmp=valor.split('-');
-  let digito=tmp[1];
-  let rut=tmp[0];
-  if(digito=='K') digito='k';
-  var M=0,S=1;
-  for(;rut;rut=Math.floor(rut/10))
-    S=(S+rut%10*(9-M++%6))%11;
-    console.log(S?S-1:'k');
-
- return S?S-1:'k';
-}
+window.addEventListener("load",mostrarDatos);

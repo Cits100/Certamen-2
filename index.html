@@ -24,7 +24,7 @@
                 <ul>
                     <li>
                         <label for="nombrecompleto" class="form-label">Nombre Completo</label>
-                        <input type="text" class="form-control" id="nombrecompleto" placeholder="Nombre Completo"required>
+                        <input type="text" class="form-control" id="1" placeholder="Nombre Completo"required>
                         <div class="valid-feedback">
                             El nombre es correcto
                           </div>
@@ -34,12 +34,52 @@
                     </li>
                     <li>
                         <label for="rut" class="form-label">RUT</label>
-                        <input type="text" class="form-control" id="rut" pattern="\d{3,8}-[\d|kK]{1}" required>
+                        <input type="text" class="form-control" id="2" pattern="\d{3,8}-[\d|kK]{1}" required>
                         <div class="valid-feedback">
-                            El formato de rut esta bien
+                            El formato es correcto
                           </div>
                           <div class="invalid-feedback">
                             El formato es incorrecto
+                          </div>
+                    </li>
+                    <li>
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="3" pattern="\d{8}" required>
+                        <div class="valid-feedback">
+                            El formato es correcto
+                          </div>
+                          <div class="invalid-feedback">
+                            Ingresar 8 digitos
+                          </div>
+                    </li>
+                    <li>
+                        <label for="correo" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="4"  required>
+                        <div class="valid-feedback">
+                            El formato es correcto
+                          </div>
+                          <div class="invalid-feedback">
+                            Formato debe ser example@example.com
+                          </div>
+                    </li>
+                    <li>
+                        <label for="acudientes" class="form-label">Acudientes</label>
+                        <input type="text" class="form-control" id="5" required>
+                        <div class="valid-feedback">
+                            El formato es correcto
+                          </div>
+                          <div class="invalid-feedback">
+                            El formato es incorrecto
+                          </div>
+                    </li>
+                    <li>
+                        <label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="6" required>
+                        <div class="valid-feedback">
+                            Fecha correcta
+                          </div>
+                          <div class="invalid-feedback">
+                            Por favor indicar fecha de nacimiento
                           </div>
                     </li>
                     <li>
@@ -48,8 +88,8 @@
                 </ul>
                 </div>
                 <div class="col">
-                    <ul>
-                        
+                    <ul id="lista">
+
                     </ul>
                 </div>
             </form>

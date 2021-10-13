@@ -2,6 +2,31 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var $ = jquery;
+    var NuevaData = Array();
+    function obtenerdata() {
+        var i;
+        var j;
+        for (i = 0; i < 6; i++) {
+            j = i.toString();
+            var obtenerdato = document.getElementById(j);
+            return obtenerdato;
+        }
+    }
+    function crearDatos() {
+        var data = new (NuevaData.length + 1, obtenerdata());
+        NuevaData.push(data);
+        mostrarDatos();
+    }
+    function mostrarDatos() {
+        var i;
+        var LData = document.getElementById("fotos");
+        var li = document.createElement("li");
+        for (i = 0; i < NuevaData.length; i++) {
+            var li_1 = document.createElement("li");
+            //LFoto.appendChild(li).innerHTML="<img src='imgs/"+Galeria[i].imagen+"'>";
+            LData.appendChild(li_1).innerHTML = "\"RUT: " + NuevaData[i].contenido + "\"";
+        }
+    }
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -18,16 +43,5 @@ define(["require", "exports", "jquery"], function (require, exports, jquery) {
             }, false);
         });
     })();
-    function ValidarRut(valor) {
-        var tmp = valor.split('-');
-        var digito = tmp[1];
-        var rut = tmp[0];
-        if (digito == 'K')
-            digito = 'k';
-        var M = 0, S = 1;
-        for (; rut; rut = Math.floor(rut / 10))
-            S = (S + rut % 10 * (9 - M++ % 6)) % 11;
-        console.log(S ? S - 1 : 'k');
-        return S ? S - 1 : 'k';
-    }
+    window.addEventListener("load", mostrarDatos);
 });
